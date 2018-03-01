@@ -15,7 +15,7 @@ export default class Game extends React.Component {
     }
 
     secretNumber = (guess) => {
-        
+
         // console.log('could be secret number:', guess); // test if the guess is being passed
         // const secret = Math.floor(Math.random() * 100) + 1; // generate random number from 1 to 100
         const secret = 100; // hard-coded secret number for testing
