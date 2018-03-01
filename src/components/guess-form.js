@@ -11,6 +11,7 @@ export default class GuessForm extends React.Component {
         this.state = {
             guessInput: 0
         };
+
     }
 
     render() {
@@ -18,10 +19,11 @@ export default class GuessForm extends React.Component {
             <form
             onSubmit={(e) => {
                 e.preventDefault();
-                this.props.whenSubmitted();
+                console.log(this.textInput.value);
+                this.props.handleSubmit();
             }}
             >
-                <input onChange={(e) => this.props.whenAnswered(e.target.value)} type="text" name="userGuess" id="userGuess"
+                <input ref={input => this.textInput = input} type="text" name="userGuess" id="userGuess"
                     className="text" maxLength="3" autoComplete="off"
                     placeholder="Enter your Guess" required />
                 <input type="submit" id="guessButton" className="button" name="submit" value="Guess"/>

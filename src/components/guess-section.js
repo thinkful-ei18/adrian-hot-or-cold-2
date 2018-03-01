@@ -8,7 +8,7 @@ export default function GuessSection(props) {
     return (
         <section>
             <h2 id="feedback">{props.feedback}</h2>
-            <GuessForm whenAnswered={(value) => console.log(value)} whenSubmitted={(e) => console.log('Guess submitted!')} />
+            <GuessForm handleSubmit={(e) => console.log('Guess submitted!')} />
         </section>
     );
 }
