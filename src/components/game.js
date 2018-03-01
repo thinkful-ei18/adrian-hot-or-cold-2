@@ -4,15 +4,8 @@ import GuessSection from './guess-section';
 import GuessCount  from './guess-count';
 import GuessList from './guess-list';
 
-export default class Game extends React.Component {
-    constructor(props) {
-        super(props);
+export default function Game(props) {
 
-        this.state = {};
-    }
-
-
-    render () {
         return (
             <div>
                 <Header />
@@ -22,5 +15,4 @@ export default class Game extends React.Component {
             </div>
         );
     }
-}
 
