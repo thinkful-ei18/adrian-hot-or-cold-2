@@ -19,8 +19,8 @@ export default class GuessForm extends React.Component {
             <form
             onSubmit={(e) => {
                 e.preventDefault();
-                console.log(this.textInput.value);
-                this.props.handleSubmit();
+                // console.log(this.textInput.value); // test input value
+                this.props.handleSubmit(this.textInput.value); // send the guess up to guess-section!
             }}
             >
                 <input ref={input => this.textInput = input} type="text" name="userGuess" id="userGuess"

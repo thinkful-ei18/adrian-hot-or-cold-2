@@ -10,7 +10,7 @@ export default class Game extends React.Component {
 
         this.state = {
             feedback: 'Make your guess!',
-            guesses: [10, 15, 25]
+            guesses: [15, 25, 56]
         }
     }
 
@@ -18,7 +18,11 @@ export default class Game extends React.Component {
         return (
             <div>
                 <Header />
-                <GuessSection feedback={this.state.feedback}/>
+                <GuessSection feedback={this.state.feedback} handleGuess={guess => {
+                const newGuesses = this.state.guesses.slice();
+                newGuesses.push(guess);
+                this.setState({guesses: newGuesses});
+                }} />
                 <GuessCount count={this.state.guesses.length}/>
                 <GuessList guesses={this.state.guesses}/>
             </div>
