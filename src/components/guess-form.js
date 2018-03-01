@@ -9,7 +9,7 @@ export default class GuessForm extends React.Component {
         super(props);
 
         this.state = {
-            
+            guessInput: 0
         };
     }
 
