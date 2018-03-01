@@ -14,6 +14,11 @@ export default class Game extends React.Component {
         }
     }
 
+    secretNumber = () => {
+        const secret = Math.floor(Math.random() * 100);
+        
+    }
+
     render() {
         return (
             <div>
