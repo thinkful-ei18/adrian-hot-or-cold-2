@@ -8,7 +8,7 @@ export default function GuessSection(props) {
     return (
         <section>
             <h2 id="feedback">{props.feedback}</h2>
-            <GuessForm />
+            <GuessForm whenAnswered={() => console.log('Guess input!')} whenSubmitted={() => console.log('Guess submit!')} />
         </section>
     );
 }
