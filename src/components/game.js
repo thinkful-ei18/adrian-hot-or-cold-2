@@ -10,18 +10,22 @@ export default class Game extends React.Component {
 
         this.state = {
             feedback: 'Make your guess!',
-            currentGuess: null,
             guesses: []
         }
     }
 
     secretNumber = (guess) => {
+        // console.log('could be secret number:', guess);
         // const secret = Math.floor(Math.random() * 100) + 1;
-        const secret = 50;
-        //need to get Guess number from handleGuess!
+        const secret = 100;
+        const newGuess = parseInt(guess, 10);
 
-        if (this.state.currentGuess === 50 ) {
-            this.setState({feedback: 'You won!', guesses: [], currentGuess: 0});
+        if (newGuess === secret) {
+            console.log('You win!');
+        } else if (newGuess - 5 || newGuess + 5 === secret) {
+            this.setState({feedback: "Hot"});
+        } else {
+            this.setState({feedback: "Cold"});
         }
     }
 
@@ -33,7 +37,8 @@ export default class Game extends React.Component {
                 <GuessSection feedback={this.state.feedback} handleGuess={guess => {
                 const newGuesses = this.state.guesses.slice();
                 newGuesses.push(guess);
-                this.setState({guesses: newGuesses, currentGuess: guess});
+                this.setState({guesses: newGuesses});
+                this.secretNumber(guess);
                 }} />
                 <GuessCount count={this.state.guesses.length}/>
                 <GuessList guesses={this.state.guesses}/>
