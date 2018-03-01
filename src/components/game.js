@@ -15,14 +15,16 @@ export default class Game extends React.Component {
     }
 
     secretNumber = (guess) => {
-        // console.log('could be secret number:', guess);
-        // const secret = Math.floor(Math.random() * 100) + 1;
-        const secret = 100;
-        const newGuess = parseInt(guess, 10);
+        
+        // console.log('could be secret number:', guess); // test if the guess is being passed
+        // const secret = Math.floor(Math.random() * 100) + 1; // generate random number from 1 to 100
+        const secret = 100; // hard-coded secret number for testing
+        const parsedGuess = parseInt(guess, 10);
+        const absoluteValue = Math.abs(parsedGuess - secret);
 
-        if (newGuess === secret) {
+        if (parsedGuess === secret) {
             console.log('You win!');
-        } else if (newGuess - 5 || newGuess + 5 === secret) {
+        } else if (absoluteValue === 5) {
             this.setState({feedback: "Hot"});
         } else {
             this.setState({feedback: "Cold"});
